@@ -1,0 +1,120 @@
+// Type definitions
+$h-font: Inter;
+$p-font: DM Sans;
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter.eot");
+    src: url("../fonts/Inter.woff") format("woff"),
+        url("../fonts/Inter.otf") format("opentype"),
+        url("../fonts/Inter.svg#filename") format("svg");
+}
+
+// Color definitions
+$primary-color: #00263e !important;
+$secondary-color: #e31c79 !important;
+$background-color: #ffffff !important;
+$background-after-color: #f8f8f8 !important;
+$success-color: #4aa54e !important;
+$danger-color: #e63d38 !important;
+$warning-color: #fc8e05 !important;
+$info-color: #277bea !important;
+$text-color: #525252 !important;
+$cta-color: #c3c3c3 !important;
+
+// Mixins
+@mixin crossBrowser($property, $value) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    #{$property}: $value;
+}
+
+@mixin on-select-button {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+        @include crossBrowser(box-shadow, 0px 1px 4px rgba(0, 0, 0, 0.25));
+    }
+}
+
+// Elements
+
+body {
+
+    // Headers
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: $h-font  !important;
+        color: $text-color;
+    }
+
+    h1 {
+        font-size: 1.938rem;
+        font-weight: 600 !important;
+    }
+
+    h2 {
+        font-size: 1.750rem !important;
+        font-weight: 600 !important;
+    }
+
+    h3 {
+        font-size: 1.563rem !important;
+        font-weight: 600 !important;
+    }
+
+    h4 {
+        font-size: 1.375rem !important;
+        font-weight: 500 !important;
+    }
+
+    h5 {
+        font-size: 1.25rem !important;
+        font-weight: 500 !important;
+    }
+
+    h6 {
+        font-size: 1.063rem !important;
+        font-weight: 400 !important;
+    }
+
+    // Paragraphs
+    font-family: $p-font;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $text-color;
+
+    p {
+        font-family: $p-font;
+        font-size: 1rem;
+        font-weight: 500;
+        color: $text-color;
+    }
+}
+
+// Dashboard Cards
+.card {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: $background-color;
+    @include crossBrowser(box-shadow, 0px 1px 4px rgba(0, 0, 0, 0.25));
+
+    .card-header {
+
+        border-radius: 5px;
+
+        .card-icon {
+            border-radius: 5px;
+            margin: 15px;
+            @include crossBrowser(box-shadow, 0px 1px 4px rgba(0, 0, 0, 0.25));
+        }
+    }
+
+    .card-footer {}
+}
